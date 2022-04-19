@@ -2,6 +2,7 @@
 
 $regular: 400;
 $bold: 700;
+$block-width: 300px;
 :root {
   --orange: hsl(25, 97%, 53%);
   --white: hsl(0, 0%, 100%);
@@ -12,4 +13,12 @@ $bold: 700;
   font-size: 15px;
   font-family: 'Overpass', sans-serif;
   font-weight: $regular;
+}
+
+.rating {
+  min-width: $block-width;
+}
+
+.thank-you {
+  min-width: $block-width;
 }
