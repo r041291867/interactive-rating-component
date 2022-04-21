@@ -16,29 +16,13 @@ $gap: 20px;
   font-weight: $regular;
 }
 
-body {
-  margin: 0;
-}
-
-.outer {
-  background-color: var(--very-dark-blue);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.rating {
-  display: none;
+%basic-dialog {
   max-width: $block-width;
   margin: auto $gap;
   color: var(--white);
   background-color: var(--dark-blue);
   padding: 1.5 * $gap $gap;
   border-radius: $gap;
-  img {
-    display: block;
-    margin: auto;
-  }
   .title {
     margin: $gap 0;
     letter-spacing: 1px;
@@ -50,6 +34,29 @@ body {
   .content {
     color: var(--medium-grey);
     margin-bottom: $gap;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.outer {
+  background-color: var(--very-dark-blue);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-grey)
+}
+
+.rating {
+  // display: none;
+  @extend %basic-dialog;
+  img {
+    display: block;
+    margin: auto;
   }
   .rating-btn-row {
     display: flex;
@@ -96,12 +103,22 @@ body {
 }
 
 .thank-you {
-  // display: none;
-  min-width: $block-width;
-  max-width: $block-width;
-  margin: auto $gap;
-  color: var(--white);
-  background-color: var(--dark-blue);
-  padding: 1.5 * $gap $gap;
-  border-radius: $gap;
+  display: none;
+  @extend %basic-dialog;
+  text-align: center;
+  img {
+    margin: $gap/2 0;
+  }
+  button {
+    min-width: 2*$gap;
+    border: none;
+    letter-spacing: 1px;
+    padding: 0 0.5*$gap;
+    line-height: 1.5*$gap;
+    height: 1.5*$gap;
+    border-radius: $gap;
+    font-weight: $regular;
+    background-color: var(--light-grey-alpha);
+    color: var(--orange);
+  }
 }

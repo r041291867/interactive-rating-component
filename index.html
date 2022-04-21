@@ -12,7 +12,7 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution a { color: hsl(228, 36%, 38%); }
   </style>
 
 </head>
@@ -34,24 +34,19 @@
       </div>
 
       <div class="rating-btn-row">
-        <button>
-          1
-        </button>
-        <button>
-          2
-        </button>
-        <button>
-          3
-        </button>
-        <button>
-          4
-        </button>
-        <button>
-          5
-        </button>
+        <button id="one" onclick="setRating('one')"> 1 </button>
+        <button id="two" onclick="setRating('two')"> 2 </button>
+        <button id="three" onclick="setRating('three')"> 3 </button>
+        <button id="four" onclick="setRating('four')"> 4 </button>
+        <button id="five" onclick="setRating('five')"> 5 </button>
       </div>
 
-      <button class="orange fill">
+      <button 
+        type="button"
+        id="submit"
+        class="orange fill"
+        onclick="submitScore()"
+      >
         Submit
       </button>
     </div>
@@ -60,27 +55,29 @@
     <!-- Thank you state start -->
     <div id="thank-you" class="thank-you">
       <img src="images/illustration-thank-you.svg" alt="illustration-thank-you">
-      <div>
-        You selected <!-- Add rating here --> out of 5
-      </div>
+      <button>
+        You selected 
+        <span id="score"></span>
+        out of 5
+      </button>
 
-      <div>
+      <div class="title">
         Thank you!
       </div>
 
-      <div>
+      <div class="content">
         We appreciate you taking the time to give a rating. If you ever need more support,
         don’t hesitate to get in touch!
       </div>
     </div>
 
     <!-- Thank you state end -->
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/r041291867/interactive-rating-component">Jason Tai</a>.
+    </div>
   </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://github.com/r041291867/interactive-rating-component">Jason Tai</a>.
-  </div>
   <script src="js/scripts.js"></script>
 </body>
 </html>
