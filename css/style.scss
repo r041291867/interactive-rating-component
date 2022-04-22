@@ -1,7 +1,6 @@
 $regular: 400;
 $bold: 700;
 $block-width: 295px;
-$gap: 20px;
 :root {
   --orange: hsl(25, 97%, 53%);
   --white: hsl(0, 0%, 100%);
@@ -12,21 +11,39 @@ $gap: 20px;
   --dark-blue: hsl(213, 19%, 18%);
   --very-dark-blue: hsl(216, 12%, 8%);
   --gap: 20px;
+  --large-gap: calc(1.5*var(--gap));
   font-size: 15px;
   font-family: 'Overpass', sans-serif;
   font-weight: $regular;
 }
 
 %basic-dialog {
-  width: clamp($block-width, calc(100% - 4*var(--gap)), 350px);
+  @media (min-width: 992px) {
+    padding: var(--large-gap);
+    border-radius: var(--large-gap);
+    .title {
+      margin: var(--large-gap) 0 var(--gap) 0;
+    }
+    .content {
+      margin-bottom: var(--large-gap);
+    }
+  }
+  @media (max-width: 991px) {
+    padding: calc(1.5 * var(--gap)) var(--gap);
+    border-radius: var(--gap);
+    .title {
+      margin: var(--gap) 0;
+    }
+    .content {
+      margin-bottom: var(--gap);
+    }
+  }
+  width: clamp($block-width, calc(100% - 4*var(--gap)), 330px);
   // width: calc(100% - 4*var(--gap));
-  margin: auto $gap;
+  margin: auto var(--gap);
   color: var(--white);
   background-color: var(--dark-blue);
-  padding: 1.5 * $gap $gap;
-  border-radius: $gap;
   .title {
-    margin: $gap 0;
     letter-spacing: 1px;
     font: {
       size: 1.5rem;
@@ -35,7 +52,6 @@ $gap: 20px;
   }
   .content {
     color: var(--medium-grey);
-    margin-bottom: $gap;
   }
 }
 
@@ -65,8 +81,18 @@ body {
 }
 
 .rating {
-  // display: none;
+  display: none;
   @extend %basic-dialog;
+  @media (min-width: 992px) {
+    .rating-btn-row {
+      margin-bottom: var(--large-gap);
+    }
+  }
+  @media (max-width: 991px) {
+    .rating-btn-row {
+      margin-bottom: var(--gap);
+    }
+  }
   img {
     display: block;
     margin: auto;
@@ -74,7 +100,6 @@ body {
   .rating-btn-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $gap;
     button:nth-child(n) {
       &:hover {
         cursor: pointer;
@@ -114,20 +139,32 @@ body {
 }
 
 .thank-you {
-  display: none;
   @extend %basic-dialog;
-  text-align: center;
-  img {
-    margin: $gap/2 0;
+  @media (min-width: 992px) {
+    img {
+      margin: var(--gap) 0 var(--large-gap) 0;
+    }
+    button {
+      padding: 0 var(--gap);
+    }
   }
+  @media (max-width: 991px) {
+    img {
+      margin: calc(var(--gap)) 0;
+    }
+    button {
+      padding: 0 1rem;
+    }
+  }
+  // display: none;
+  text-align: center;
   button {
-    min-width: 2*$gap;
+    min-width: calc(2*var(--gap));
     border: none;
     letter-spacing: 1px;
-    padding: 0 0.5*$gap;
-    line-height: 1.5*$gap;
-    height: 1.5*$gap;
-    border-radius: $gap;
+    line-height: calc(1.5*var(--gap));
+    height: calc(1.5*var(--gap));
+    border-radius: var(--gap);
     font-weight: $regular;
     background-color: var(--light-grey-alpha);
     color: var(--orange);
