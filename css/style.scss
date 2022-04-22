@@ -11,9 +11,9 @@ $block-width: 295px;
   --dark-blue: hsl(213, 19%, 18%);
   --very-dark-blue: hsl(216, 12%, 8%);
   --gap: 20px;
-  --large-gap: calc(1.5*var(--gap));
+  --large-gap: calc(1.5 * var(--gap));
   font-size: 15px;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
   font-weight: $regular;
 }
 
@@ -38,7 +38,7 @@ $block-width: 295px;
       margin-bottom: var(--gap);
     }
   }
-  width: clamp($block-width, calc(100% - 4*var(--gap)), 330px);
+  width: clamp($block-width, calc(100% - 4 * var(--gap)), 330px);
   // width: calc(100% - 4*var(--gap));
   margin: auto var(--gap);
   color: var(--white);
@@ -77,7 +77,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--light-grey)
+  color: var(--light-grey);
 }
 
 .rating {
@@ -85,7 +85,7 @@ body {
   @extend %basic-dialog;
   @media (min-width: 992px) {
     .rating-btn-row {
-      padding-top: calc(var(--gap)/2);
+      padding-top: calc(var(--gap) / 2);
       margin-bottom: var(--large-gap);
     }
   }
@@ -161,11 +161,11 @@ body {
   display: none;
   text-align: center;
   button {
-    min-width: calc(2*var(--gap));
+    min-width: calc(2 * var(--gap));
     border: none;
     letter-spacing: 1px;
-    line-height: calc(1.5*var(--gap));
-    height: calc(1.5*var(--gap));
+    line-height: calc(1.5 * var(--gap));
+    height: calc(1.5 * var(--gap));
     border-radius: var(--gap);
     font-weight: $regular;
     background-color: var(--light-grey-alpha);
