@@ -34,14 +34,14 @@
       </div>
 
       <div class="rating-btn-row">
-        <button id="one" onclick="setRating('one')"> 1 </button>
-        <button id="two" onclick="setRating('two')"> 2 </button>
-        <button id="three" onclick="setRating('three')"> 3 </button>
-        <button id="four" onclick="setRating('four')"> 4 </button>
-        <button id="five" onclick="setRating('five')"> 5 </button>
+        <button id="1" onclick="handleClick('1')"> 1 </button>
+        <button id="2" onclick="handleClick('2')"> 2 </button>
+        <button id="3" onclick="handleClick('3')"> 3 </button>
+        <button id="4" onclick="handleClick('4')"> 4 </button>
+        <button id="5" onclick="handleClick('5')"> 5 </button>
       </div>
 
-      <button 
+      <button
         type="button"
         id="submit"
         class="orange fill"
@@ -56,7 +56,7 @@
     <div id="thank-you" class="thank-you">
       <img src="images/illustration-thank-you.svg" alt="illustration-thank-you">
       <button>
-        You selected 
+        You selected
         <span id="score"></span>
         out of 5
       </button>
