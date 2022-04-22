@@ -81,7 +81,7 @@ body {
 }
 
 .rating {
-  display: none;
+  // display: none;
   @extend %basic-dialog;
   @media (min-width: 992px) {
     .rating-btn-row {
@@ -156,7 +156,7 @@ body {
       padding: 0 1rem;
     }
   }
-  // display: none;
+  display: none;
   text-align: center;
   button {
     min-width: calc(2*var(--gap));
