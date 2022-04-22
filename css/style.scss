@@ -1,6 +1,6 @@
 $regular: 400;
 $bold: 700;
-$block-width: 300px;
+$block-width: 295px;
 $gap: 20px;
 :root {
   --orange: hsl(25, 97%, 53%);
@@ -11,13 +11,15 @@ $gap: 20px;
   --medium-grey-alpha: hsla(216, 12%, 54%, 0.2);
   --dark-blue: hsl(213, 19%, 18%);
   --very-dark-blue: hsl(216, 12%, 8%);
+  --gap: 20px;
   font-size: 15px;
   font-family: 'Overpass', sans-serif;
   font-weight: $regular;
 }
 
 %basic-dialog {
-  max-width: $block-width;
+  width: clamp($block-width, calc(100% - 4*var(--gap)), 350px);
+  // width: calc(100% - 4*var(--gap));
   margin: auto $gap;
   color: var(--white);
   background-color: var(--dark-blue);
@@ -35,6 +37,17 @@ $gap: 20px;
     color: var(--medium-grey);
     margin-bottom: $gap;
   }
+}
+
+%button {
+  min-width: 3rem;
+  border: none;
+  line-height: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  font-weight: $bold;
+  color: var(--light-grey);
+  background-color: var(--medium-grey-alpha);
 }
 
 body {
@@ -62,34 +75,24 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: $gap;
+    button:nth-child(n) {
+      &:hover {
+        cursor: pointer;
+        background-color: var(--orange);
+        color: var(--white);
+      }
+      &:active {
+        background-color: var(--medium-grey);
+        color: var(--white);
+      }
+    }
   }
   button {
-    min-width: 2*$gap;
-    border: none;
-    letter-spacing: 3px;
-    line-height: 2*$gap;
-    height: 2*$gap;
-    border-radius: $gap;
-    font-weight: $bold;
+    @extend %button;
+  }
+  #submit {
     text-transform: uppercase;
-    background-color: var(--medium-grey-alpha);
-    color: var(--light-grey);
-    &:hover {
-      cursor: pointer;
-      background-color: var(--orange);
-      color: var(--white);
-    }
-    &:active {
-      background-color: var(--medium-grey);
-      color: var(--white);
-    }
-  }
-  .fill {
-    width: 100%;
-  }
-  .orange {
-    background-color: var(--orange);
-    color: var(--white);
+    letter-spacing: 2px;
     &:active {
       background-color: var(--medium-grey);
       color: var(--white);
@@ -99,6 +102,14 @@ body {
       color: var(--orange);
       cursor: pointer;
     }
+  }
+
+  .fill {
+    width: 100%;
+  }
+  .orange {
+    background-color: var(--orange);
+    color: var(--white);
   }
 }
 
