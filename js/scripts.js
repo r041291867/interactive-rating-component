@@ -1,13 +1,26 @@
-let rating_score = 0;
+let current_score = '';
+
+function handleClick(score) {
+  if (current_score === score) return;
+  if (current_score) {
+    setElementClassById(current_score, "")
+  }
+  setElementClassById(score, "orange");
+  setRating(score);
+}
 
 function setRating(score) {
-  let el = document.getElementById(score)
-  el.className = "orange"
-  // el.innerText = score;
-  // rating_score = score;
+  document.getElementById('score').innerHTML = score;
+  current_score = score;
+}
+
+function setElementClassById(id, className) {
+  let el = document.getElementById(id);
+  el.className = className
 }
 
 function submitScore() {
+  if (!current_score) return
   document.getElementById('rating').style.display = 'none';
   document.getElementById('thank-you').style.display = 'block';
 }
